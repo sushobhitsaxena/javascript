@@ -14,8 +14,27 @@
 <script>
     const parent=document.querySelector('.parent')
     console.log(parent)
-    console.log(parent.children)
+    console.log(parent.children) //we are acessing the class so we are using the dot(.)
+    console.log(parent.children[1])
+    console.log(parent.children[0])
+    console.log(parent.children[0])
+    //parent .children are giving ous HTML  collection so they are not exactly array but they can be treated as an array
     
+    console.log(parent.children[0].innerHTML)
+
+    for (let i = 0; i< parent.children.length; i++) {
+   console.log(parent.children[i].innerHTML)
+  }
+  parent.children[1].style.color= "orange"
+  console.log(parent.firstElementChild)//it select the first child in this case it is monday
+    const dayone=document.querySelector(".day")//it select the first child so that is why it has selected the monday
+    console.log(dayone)
+console.log(dayone.parentElement);
+console.log(dayone.nextElementSibling);
+console.log("NODES:",parent.childNodes);//it is like tree
+
+
+
 
 
 </script>

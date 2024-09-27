@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: black;">
+    <h2>AMAZING IMAGES</h2>
+
+    <div>
+<ul id="images">
+
+<li>
+    <li><img width="200px" id="flower" src="https://images.pexels.com/photos/20729075/pexels-photo-20729075/free-photo-of-bunch-of-red-tulips.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+    <li><img width="200px" id="seaside" src="https://images.pexels.com/photos/28056128/pexels-photo-28056128/free-photo-of-a-picnic-blanket-on-the-beach-with-a-bottle-of-wine.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+    <li><img width="200px" id="bridge" src="https://images.pexels.com/photos/21533286/pexels-photo-21533286/free-photo-of-tower-bridge-in-london.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+    <li><img width="200px" id="happiness" src="https://images.pexels.com/photos/28291420/pexels-photo-28291420/free-photo-of-half-half-wall-paper-picture.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+    <li><a href="https://google.com" id="google">google</a></li>
+    
+</li>
+
+</ul>
+ </div>
+</body>
+
+<script>
+    //(first method:but gives less functionality)  document.getElementById('#bridge').onclick=function(){
+    //     alert("bridge clicked")
+    // }
+
+    // document.getElementById('bridge').addEventListener('click',function(){
+    //     alert("bridge clicked")
+    // },false)//better approach
+
+//attachevent()
+//jQuery-on 
+//important events:=>type,timestamp,defaultPrevented,toElement,srcElement,currentTarget,
+//ClientX,clientY,screenX,screenY
+//altkey,ctrlKey,Keycode
+
+//  document.getElementById('images').addEventListener('click',function(){
+//       console.log("clicked inside the ul")
+//   },false)
+
+//   document.getElementById('seaside').addEventListener('click',function(){
+//      console.log("clicked on seaside")
+//   },false)
+
+//seaside is present inside the ul so when we click seaside then which will print first (clicked on seaside) or (clicked inside the ul)? , so the answer is clicked on seaside will print first becoz when we put false value which is also the default value then bubling occurs which means first inner element is reached then it reaches towards outer elements 
+
+// document.getElementById('images').addEventListener('click',function(){
+//     console.log("clicked inside the ul")
+// },true)
+
+// document.getElementById('seaside').addEventListener('click',function(){
+//     console.log("clicked on seaside")
+// },true)
+
+//  but when we use true value then capturing mode will occur in which first(clicked inside the ul)will print then (clicked on seaside ) will print because it comes or access from top to bottam
+
+// document.getElementById('seaside').addEventListener('click',function(e){
+//      console.log("clicked on seaside")
+//      e.stopPropagation() //stopProgation stop the bubleing and capturing
+//   },false)
+ 
+// document.getElementById('google').addEventListener('click',function(e){
+//     console.log("google clicked")
+//     e.preventDefault()
+// },false)
+
+document.querySelector('#images').addEventListener('click',function(e){
+
+    console.log(e.target);
+    console.log(e.target.parentNode);//refer to parent
+
+    //how to remove
+    let removeit=e.target.parentNode
+   // removes the images;- removeit.remove()
+
+})
+
+
+</script>
+
+
+</html>
